@@ -60,6 +60,11 @@ BackStepStack.prototype.sizeOf = function()
 {
   return this.size;
 };
+BackStepStack.prototype.clearAll = function()
+{
+  this.size = 0;
+  this.top = 0;
+}
 
 //复制移动前的地图并压栈
 function copyMapForBackStep()
@@ -117,6 +122,7 @@ function copyOriginalMap(level)
       compareMap[i][j] = oMap[i][j];//原始地图复制到过关比较的地图
     }
   }
+  backStepInstance.clearAll(); //新的关卡清除之前的历史步数
 }
 
 //设置地图元素的背景
