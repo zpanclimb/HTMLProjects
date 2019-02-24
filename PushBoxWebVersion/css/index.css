@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+  padding: 0;
+  /* background-color: #F5F4F0; */
+  background-color: #FFFAE8;
+}
+.clearfix::after {
+  content: '.';
+  height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+
+/* ======= main-container ========= */
+#mainContainer {
+  width: 1010px;
+  height: 600px;
+  background-color: darkgray;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 10px;
+  position: relative;
+}
+#mainContainer * {
+  user-select:none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+/* ======= mapArea ========= */
+#mapArea {
+  width: 600px;
+  height: 600px;
+  /* background-color: #F5F4F0; */
+  background-color: #FFFAE8;
+  float: left;
+}
+/* 地图元素 */
+.mapElement {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  float: left;
+  background: url(../img/box.png);
+}
+/* ======= scrollArea ========= */
+#scrollArea {
+  width: 400px;
+  height: 600px;
+  /* background-color: #F5F4F0; */
+  background-color: #FFFAE8;
+  margin-left: 10px;
+  float: left;
+}
+/* ======= scrollArea 上部的提示和选关按钮 ========= */
+#topTips {
+  width: 400px;
+  height: 199px;
+  /* background-color: #9ACD32; */
+  padding-top: 1px;
+}
+#tipsContent {
+  margin: 0;
+  font-size: 30px;
+  margin: 30px 0 0 30px;
+}
+#tipsContent, #chooseLevelBox * {
+  color: #173C63;
+}
+#chooseLevelBox {
+  height: 50px;
+  width: 340px;
+  line-height:45px ;
+  margin: 30px;
+}
+#chooseLevelBox label {
+  font-size: 30px;
+}
+#mapLevelText {
+  width: 60px;
+  height: 40px;
+  font-size: 30px;
+  text-align: center;
+  margin-left: 35px;
+  background-color: #FFFAE8;
+  border-style: ridge;
+}
+#chooseLevelBtn {
+  width: 80px;
+  height: 45px;
+  font-size: 25px;
+  margin-left: 35px;
+  border-radius: 5px;
+}
+/* ======= scrollArea 中部的四个方向键 ========= */
+#middleDirection {
+  width: 400px;
+  height: 250px;
+  /* background-color: #0000FF; */
+}
+#middleDirection input, #lowerChoose input {
+  width: 100px;
+  height: 100px;
+  float: left;
+  border-radius: 5px;
+  background-size: 100px 100px;
+  /* border-style: none; */
+  /* border-style: outset; */
+}
+#directionUp {
+  margin: 0 150px 25px 150px;
+  background: url(../img/up.png);
+}
+#directionLeft {
+  margin-left: 25px;
+  background: url(../img/left.png);
+}
+#directionDown {
+  background: url(../img/down.png);
+}
+#directionRight {
+  background: url(../img/right.png);
+}
+#directionLeft, #directionDown, #directionRight {
+  margin-right: 25px;
+}
+/* ======= scrollArea 下部的退步，重玩，下一关按钮 ========= */
+#lowerChoose {
+  width: 400px;
+  height: 150px;
+  /* background-color: #008000; */
+}
+#previousStep {
+  margin-left: 25px;
+}
+#previousStep, #replay, #nextLevel {
+  margin-top: 25px;
+  margin-right: 25px;
+}
+#previousStep {
+  background: url(../img/backStep.png);
+}
+#replay {
+  background: url(../img/replay.png);
+}
+#nextLevel {
+  background: url(../img/next.png);
+}
+
+/* ======= 过关提示界面 ========= */
+/* ======= 选关输入参数错误提示界面 ========= */
+#passingPanel, #chooseLevelErrorPanel  {
+  width: 0;
+  height: 0;
+  background-color: #F6F6F6;
+  border-radius: 10px;
+  position: absolute;
+  top: 175px;
+  left: 305px;
+  opacity: 0;
+  filter: alpha(opacity:0);
+  display: none;
+}
+#passingPanel div, #chooseLevelErrorPanel div {
+  width: 0;
+  height: 0;
+  line-height: 50px;
+  color: white;
+  font-size: 20px;
+  padding-left: 15px;
+  background-color: #9AC43B;
+  border-radius: 10px 10px 0 0;
+}
+#passingPanel p, #chooseLevelErrorPanel p {
+  position: absolute;
+  top: 90px;
+  left: 50px;
+  font-size: 20px;
+  color: #144A8B;
+}
+#passingPanel input, #chooseLevelErrorPanel input {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  border-radius: 3px;
+  border-style: none;
+  font-size: 20px;
+  color: white;
+  background-color: #9AC43B;
+  left: 160px;
+  bottom: 20px;
+}
+#passingPanel input:hover, #chooseLevelErrorPanel input:hover{
+  background-color: #6A8628;
+}
