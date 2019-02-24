@@ -357,6 +357,7 @@ window.onload = function()
     } else {
       nowLevel = levelNum;
       copyOriginalMap(nowLevel);
+      tipsContent.innerHTML = '现在是第 '+nowLevel+' 关，共 '+totalMapQuantity+' 关';
     }
   };
   
