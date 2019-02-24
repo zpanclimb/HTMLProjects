@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>推箱子网页版</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script type="text/javascript" src="js/move.js"></script>
+    <script type="text/javascript" src="js/originalMaps.js"></script>
+    <script type="text/javascript" src="js/pushBox_move.js"></script>
+	</head>
+	<body>
+		<!-- 
+      地图：12 X 12 
+      地图元素大小：50px X 50px
+      显示地图面板大小：600px X 600px
+      控制面板大小：200px X 600px
+      整体显示大小：800px X 600px
+     -->
+     <!-- 游戏的主体界面 -->
+     <div id="mainContainer" class="clearfix">
+       <!-- 游戏的地图、人物界面 -->
+       <div id="mapArea" class="clearfix"></div>
+       <!-- 游戏的控制按钮界面 -->
+       <div id="scrollArea" class="clearfix">
+         <!-- 提示和选关按钮 -->
+         <div id="topTips">
+           <p id="tipsContent">现在是第 1 关，共 10 关</p>
+           <div id="chooseLevelBox">
+             <label for="mapLevelText">可选关:</label><input type="text" name="" id="mapLevelText" value="" />
+             <input type="button" name="" id="chooseLevelBtn" value="确认"/>
+           </div>
+         </div>
+         <!-- 方向按钮 -->
+         <div id="middleDirection">
+           <input type="button" name="" id="directionUp" value="" />
+           <input type="button" name="" id="directionLeft" value="" />
+           <input type="button" name="" id="directionDown" value="" />
+           <input type="button" name="" id="directionRight" value="" />
+         </div>
+         <!-- 退步、重玩、下一关按钮 -->
+         <div id="lowerChoose">
+           <input type="button" name="" id="previousStep" value="" />
+           <input type="button" name="" id="replay" value="" />
+           <input type="button" name="" id="nextLevel" value="" />
+         </div>
+       </div>
+       <!-- 提示恭喜过关界面 -->
+       <div id="passingPanel">
+         <div>提示</div>
+         <p>恭喜你，过关了！</p>
+         <input type="button" name="" id="" value="ok" />
+       </div>
+       <div id="chooseLevelErrorPanel">
+         <div>提示</div>
+         <p>请输入合适的关卡数！</p>
+         <input type="button" name="" id="" value="ok" />
+       </div>
+     </div>
+	</body>
+</html>
