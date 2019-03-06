@@ -145,8 +145,8 @@ body {
   background-color: #F6F6F6;
   border-radius: 10px;
   position: absolute;
-  top: 175px;
-  left: 305px;
+  top: 140px;
+  left: 205px;
   opacity: 0;
   filter: alpha(opacity:0);
   display: none;
