@@ -1,0 +1,226 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFAE8;
+}
+.clearfix::after {
+  content: '.';
+  height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+/* ======= mainContainer 整个主界面========= */
+#mainContainer {
+  width: 790px;
+  height: 510px;
+  background-color: lightgray;
+  border-radius: 4px;
+  margin: 40px auto;
+  padding: 10px;
+  position: relative;
+}
+#mainContainer * {
+  user-select:none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+/* ======= moveArea 游戏移动的界面 ========= */
+#moveArea {
+  width: 600px;
+  height: 510px;
+  /* background-color: #F5F4F0; */
+  background-color: #FFFAE8;
+  float: left;
+  position: absolute;
+  overflow: hidden;
+}
+/* 代表蛇身的节点元素，用span来代替 */
+.nodeElement {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  position: absolute;
+}
+
+/* ======= tipsArea ========= */
+#tipsArea {
+  width: 180px;
+  height: 510px;
+  background-color: #FFFAE8;
+  position: absolute;
+  left: 620px;
+}
+/* operationTips 游戏操作提示 */
+/* historicallyHighestScore 历史最高分 */
+/* currentScore 实时分数 */
+#operationTips,
+#historicallyHighestScore,
+#showCurrentScore{
+  width: 180px;
+  margin-bottom: 10px;
+}
+#operationTipsBtn,
+#historyScoreBtn,
+#showCurrentScoreBtn{
+  width: 180px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  background-color: #9ACD32;
+  border-style: none;
+}
+#operationTipsContent,
+#historyScoreContent {
+  width: 178px;
+  /* height: 58px; */
+  height: 0;
+  border: 1px solid #9ACD32;
+  display: none;
+}
+/* #historyScoreContent {
+  height: 82px;
+} */
+#historyScoreContent span {
+  color: #566561;
+  margin-left: 10px;
+  font-size: 14px;
+}
+#historyScoreContent p {
+  display: inline-block;
+  width: 120px;
+}
+#currentScoreContent {
+  width: 178px;
+  height: 58px;
+  border: 1px solid #9ACD32;
+  /* display: none; */
+}
+#operationTipsContent p,
+#historyScoreContent p {
+  margin: 0;
+  text-indent: 10px;
+  font-size: 14px;
+  color: #566561;
+}
+#currentScoreContent p {
+  color: #566561;
+  font-style: initial;
+  margin: 0;
+  margin-top: 13px;
+  font-size: 25px;
+  text-indent: 80px;
+}
+
+/* startGame 开始游戏按钮 */
+/* chooseLevel 选择游戏难度按钮 */
+#startGame, #chooseLevel {
+  width: 180px;
+  height: 40px;
+  background-color: #9ACD32;
+  font-size: 16px;
+  color: white;
+  border-style: none;
+  position: absolute;
+}
+#startGame {
+  bottom: 115px;
+}
+#chooseLevel {
+  bottom: 65px;
+}
+#tipsArea input.chooseLevelBtn:hover {
+  background-color: #6A8628;
+}
+/* ======= 得分弹出框 ========= */
+/* ======= 选择游戏难度弹出框 ========= */
+#scoreTips, #chooseLevelPanel  {
+  width: 400px;
+  /* height: 250px; */
+  height: 0;
+  background-color: #F6F6F6;
+  border-radius: 10px;
+  position: absolute;
+  top: 140px;
+  left: 205px;
+  opacity: 0;
+  filter: alpha(opacity:0);
+  display: none;
+}
+#scoreTips div, #chooseLevelPanel div {
+  width: 385px;
+  /* height: 50px; */
+  height: 0;
+  line-height: 50px;
+  color: white;
+  font-size: 20px;
+  padding-left: 15px;
+  background-color: #9AC43B;
+  border-radius: 10px 10px 0 0;
+}
+#score {
+  position: absolute;
+  display: inline-block;
+  width: 400px;
+  height: 60px;
+  color: #144A8B;
+  font-size: 50px;
+  font-style: italic;
+  line-height: 60px;
+  text-align: center;
+  top: 110px;
+}
+#scoreTips p, #chooseLevelPanel p {
+  position: absolute;
+  width: 400px;
+  top: 50px;
+  text-indent: 15px;
+  font-size: 20px;
+  color: #566561;
+}
+/* ======= 选择游戏难度按钮 ========= */
+#scoreTips input, #okayBtn, #simpleDifficulty,
+#generalDifficulty, #masterDifficulty, #devilDifficulty{
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  border-radius: 3px;
+  border-style: none;
+  font-size: 20px;
+  color: white;
+}
+#scoreTips input, #okayBtn {
+  left: 160px;
+  bottom: 15px;
+  background-color: #9AC43B;
+}
+#scoreTips input:hover, #chooseLevelPanel input:hover{
+  background-color: #6A8628;
+}
+.difficultyBtn {
+  background-color: #808080;
+  bottom: 90px;
+}
+.difficultyBtn_selected {
+  background-color: #9AC43B;
+  bottom: 90px;
+}
+#chooseLevelPanel input.difficultyBtn:hover{
+  background-color: #666666;
+}
+#simpleDifficulty {
+  left: 16px;
+}
+#generalDifficulty {
+  left: 112px;
+}
+#masterDifficulty {
+  left: 208px;
+}
+#devilDifficulty {
+  left: 304px;
+}
