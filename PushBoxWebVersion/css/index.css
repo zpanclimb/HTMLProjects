@@ -104,23 +104,29 @@ body {
   height: 100px;
   float: left;
   border-radius: 5px;
-  background-size: 100px 100px;
-  /* border-style: none; */
-  /* border-style: outset; */
+  background-repeat: no-repeat;
 }
 #directionUp {
   margin: 0 150px 25px 150px;
-  background: url(../img/up.png);
+  /* background: url(../img/up.png); */
+  background: url(../img/pushBoxSprite.png);
+  background-position: -70px -10px;
 }
 #directionLeft {
   margin-left: 25px;
-  background: url(../img/left.png);
+  /* background: url(../img/left.png); */
+  background: url(../img/pushBoxSprite.png);
+  background-position: -70px -120px;
 }
 #directionDown {
-  background: url(../img/down.png);
+  /* background: url(../img/down.png); */
+  background: url(../img/pushBoxSprite.png);
+  background-position: -180px -10px;
 }
 #directionRight {
-  background: url(../img/right.png);
+  /* background: url(../img/right.png); */
+  background: url(../img/pushBoxSprite.png);
+  background-position: -180px -120px;
 }
 #directionLeft, #directionDown, #directionRight {
   margin-right: 25px;
@@ -137,15 +143,22 @@ body {
 #previousStep, #replay, #nextLevel {
   margin-top: 25px;
   margin-right: 25px;
+  background-repeat: no-repeat;
 }
 #previousStep {
-  background: url(../img/backStep.png);
+  /* background: url(../img/backStep.png); */
+  background: url(../img/pushBoxSprite.png);
+  background-position: -70px -230px;
 }
 #replay {
-  background: url(../img/replay.png);
+  /* background: url(../img/replay.png); */
+  background: url(../img/pushBoxSprite.png);
+  background-position: -180px -230px;
 }
 #nextLevel {
-  background: url(../img/next.png);
+  /* background: url(../img/next.png); */
+  background: url(../img/pushBoxSprite.png);
+  background-position: -70px -340px;
 }
 
 /* ======= 过关提示界面 ========= */
