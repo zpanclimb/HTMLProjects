@@ -130,19 +130,26 @@ function setMapELeBackground(oEle,num)
 {
   switch(num)
   {
-    case 0: oEle.style.background = 'url(img/ground.png)';
+    // case 0: oEle.style.background = 'url(img/ground.png)';
+    case 0: oEle.style.background = 'url(img/pushBoxSprite.png) -10px -10px';
       break;
-    case 1: oEle.style.background = 'url(img/wall.png)';
+    // case 1: oEle.style.background = 'url(img/wall.png)';
+    case 1: oEle.style.background = 'url(img/pushBoxSprite.png) -10px -70px';
       break;
-    case 3: oEle.style.background = 'url(img/terminal.png)';
+    // case 3: oEle.style.background = 'url(img/terminal.png)';
+    case 3: oEle.style.background = 'url(img/pushBoxSprite.png) -10px -130px';
       break;
-    case 4:oEle.style.background = 'url(img/box.png)';
+    // case 4:oEle.style.background = 'url(img/box.png)';
+    case 4: oEle.style.background = 'url(img/pushBoxSprite.png) -10px -190px';
       break;
-    case 5:oEle.style.background = 'url(img/man.png)';
+    // case 5:oEle.style.background = 'url(img/man.png)';
+    case 5: oEle.style.background = 'url(img/pushBoxSprite.png) -10px -250px';
       break;
-    case 7:oEle.style.background = 'url(img/boxArrival.png)';
+    // case 7:oEle.style.background = 'url(img/boxArrival.png)';
+    case 7: oEle.style.background = 'url(img/pushBoxSprite.png) -10px -310px';
       break;
-    case 8:oEle.style.background = 'url(img/man.png)';
+    // case 8:oEle.style.background = 'url(img/man.png)';
+    case 8: oEle.style.background = 'url(img/pushBoxSprite.png) -10px -250px';
       break;
   }
 }
