@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>俄罗斯方块网页版</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<!-- 
+		横：10格 300px
+		竖：20格 600px
+	 -->
+	<body>
+		<!-- 主界面 -->
+		<div id="mainContainer" class="clearfix">
+			<!-- 方块儿移动界面 -->
+			<div id="moveArea"></div>
+			<!-- 信息提示界面 -->
+			<div id="tipsArea">
+        <!-- 游戏操作提示 -->
+        <div id="operationTipsBox">
+        	<input type="button" id="operationTipsBtn" value="操作提示" class="operationBtn" />
+        	<div id="operationTipsContent">
+            <p><strong>回车键</strong>&nbsp;&nbsp;&nbsp;&nbsp;开始游戏</p>
+            <p><strong>方向上键</strong>&nbsp;控制方块旋转</p>
+            <p><strong>空格键</strong>&nbsp;&nbsp;&nbsp;&nbsp;控制方块旋转</p>
+            <p><strong>方向下键</strong>&nbsp;加速下落</p>
+            <p><strong>方向左右键</strong>&nbsp;左右移动</p>
+            <p><strong>ctrl键</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;暂停和继续游戏</p>
+          </div>
+        </div>
+				<!-- 即将下落的方块预览 -->
+				<div id="previewBox">
+					<input type="button" id="previewBtn" value="方块预览" class="operationBtn" />
+					<div id="previewContent"></div>
+				</div>
+				<!-- 分数 -->
+				<div id="scoreBox">
+					<input type="button" id="showScoreBtn" value="分数" class="operationBtn" />
+					<div id="scoreContent">
+						<span><strong>消&nbsp;除&nbsp;行</strong></span><p id="clearLine">0</p>
+						<span><strong>得&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分</strong></span><p id="currentScore">0</p>
+					</div>
+				</div>
+				<!-- 开始游戏按钮 -->
+				<input type="button" id="startGameBtn" value="开始游戏" class="operationBtn" />
+			</div>
+      <!-- 得分弹出框 -->
+      <div id="scorePopup">
+        <div>得分</div>
+        <p>游戏结束，你的得分是：</p>
+        <span id="finalScore">0</span>
+        <input type="button" name="" id="" value="OK" />
+      </div>
+		</div>
+	</body>
+  
+  <script type="text/javascript" src="js/startMove.js"></script>
+  <script type="text/javascript" src="js/tetris_square.js"></script>
+</html>
