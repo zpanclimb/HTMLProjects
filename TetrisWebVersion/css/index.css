@@ -1,0 +1,174 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFAE8;
+}
+.clearfix::after {
+  content: '.';
+  height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+/* ========== mainContainer 主界面 =========== */
+#mainContainer {
+  width:490px;
+  height:600px;
+  padding:10px;
+  margin:50px auto;
+  position: relative;
+  background-color:darkgray;
+  box-shadow: 1px 1px 10px #888888;
+}
+#mainContainer * {
+  user-select:none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+/* ========== moveArea 方块移动界面 =========== */
+#moveArea {
+  width:300px;
+  height:600px;
+  margin-right:10px;
+  float:left;
+  position:relative;
+  background-color:linen;
+}
+/* 代表方块的节点元素，用span来代替 */
+.squareElement {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-style: groove;
+  border-radius: 4px;
+  position: absolute;
+  background-color: darkgreen;
+}
+/* ========== tipsArea 信息提示界面 =========== */
+#tipsArea {
+  width:180px;
+  height:600px;
+  float:left;
+  position: relative;
+  background-color:linen;
+}
+/* previewContent 下一个方块预览界面 */
+/* scoreContent   分数显示界面 */
+#operationTipsBox, #previewBox, #scoreBox {
+  margin-bottom: 10px;
+}
+#previewContent, #scoreContent ,#operationTipsContent{
+  width:178px;
+  height:88px;
+  background-color:#FFFAE8;
+  border: 1px solid #9ACD32;
+  /* display: none; */
+}
+#operationTipsContent {
+  height: 0;
+  display: none;
+}
+#operationTipsContent p {
+  font-size: 14px;
+  color: #566561;
+  text-indent: 10px;
+  margin: 0;
+}
+#previewContent {
+  height:118px;
+  position:relative;
+}
+#scoreContent span {
+  color: #566561;
+  margin-left: 10px;
+  font-size: 16px;
+}
+#scoreContent p {
+  margin: 0;
+  margin-top: 12px;
+  color: #566561;
+  font-size: 20px;
+  text-indent: 50px;
+  display: inline-block;
+  width: 105px;
+}
+#operationTipsBtn,
+#previewBtn,
+#showScoreBtn,
+#startGameBtn{
+  width: 180px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  background-color: #9ACD32;
+  border-style: none;
+}
+#startGameBtn {
+  position: absolute;
+  bottom: 80px;
+}
+#tipsArea input.operationBtn:hover {
+  background-color: #6A8628;
+}
+/* ========== scorePopup 得分弹出框 =========== */
+#scorePopup  {
+  width: 400px;
+  /* height: 250px; */
+  height: 0;
+  background-color: #F6F6F6;
+  border-radius: 10px;
+  position: absolute;
+  top: 175px;
+  left: 55px;
+  opacity: 1;
+  filter: alpha(opacity:100);
+  display: none;
+}
+#scorePopup div {
+  width: 385px;
+  /* height: 50px; */
+  height: 0;
+  line-height: 50px;
+  color: white;
+  font-size: 20px;
+  padding-left: 15px;
+  background-color: #9AC43B;
+  border-radius: 10px 10px 0 0;
+}
+#finalScore {
+  position: absolute;
+  display: inline-block;
+  width: 400px;
+  height: 60px;
+  color: #144A8B;
+  font-size: 50px;
+  font-style: italic;
+  line-height: 60px;
+  text-align: center;
+  top: 110px;
+}
+#scorePopup p {
+  position: absolute;
+  width: 400px;
+  top: 50px;
+  text-indent: 15px;
+  font-size: 20px;
+  color: #566561;
+}
+#scorePopup input {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  border-radius: 3px;
+  border-style: none;
+  font-size: 20px;
+  color: white;
+  left: 160px;
+  bottom: 15px;
+  background-color: #9AC43B;
+}
+#scorePopup input:hover{
+  background-color: #6A8628;
+}
