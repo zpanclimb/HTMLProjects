@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>瀑布流字符雨</title>
+    <style type="text/css">
+    	body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      #paintArea {
+        background-color: #111;
+      }
+    </style>
+	</head>
+	<body>
+		<canvas id="paintArea"></canvas>
+	</body>
+  <script type="text/javascript">
+  	var characterRain = {
+      isColorful : false,//是否呈现彩色的字符雨
+      fontSize : 16,//字符雨字符的大小
+      disappearSpeed : 0.05,  //字符雨消失的速度,取值范围 ( 0, 1 ),数值越大消失越快
+      waterFallCount : 0.99 ,//画布中字符雨的数目,取值范围 ( 0, 1 ),数值越大出现概率越小数目越少
+      characters : '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz._$#@',//可用作字符雨的字符
+      //彩色字符雨随机一个颜色
+      randomColor : function (){
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + "," + g + "," + b + ")"; 
+      },
+      //在画布中画出字符瀑布流
+      draw : function(attr){
+        attr.context.fillStyle = 'rgba(1,1,1,'+ this.disappearSpeed +')';
+        //fillRect() 方法绘制“已填色”的矩形。默认的填充颜色是黑色。
+        attr.context.fillRect(0, 0, attr.canvas.width, attr.canvas.height);
+        //给字体设置样式
+        // var fs = Math.floor(Math.random()*16)+16;//随机给个字体大小
+        attr.context.font = "700 " + this.fontSize + "px  Consolas";
+        //给字体添加颜色
+        if(this.isColorful) {
+          attr.context.fillStyle = this.randomColor(); //彩色字符雨
+        } else {
+          attr.context.fillStyle = "#00cc33";//默认颜色：经典黑底配绿字，可以rgb,hsl, 标准色，十六进制颜色
+        }
+        
+        //写入画布中
+        for (var i = 0; i < attr.colunms; i++) {
+          //设置文字出发时间随机让数组里面的文字索引随机出现  
+          var index = Math.floor(Math.random() * this.characters.length);
+          var x = i * this.fontSize;
+          var y = attr.drops[i] * this.fontSize;//也让y轴方向也向下掉一个文字的距离
+          attr.context.fillText(this.characters[index], x, y);
+          // //如果要改变时间，肯定就是改变每次他的起点
+          if (y >= attr.canvas.height && Math.random() > this.waterFallCount) {
+              attr.drops[i] = 0;
+          }
+          attr.drops[i]++;//让数组里面的值每次加一，用于上面的y轴下掉 
+        } 
+        
+      },
+      setAttributes : function(){
+        var myCanvas = document.getElementById('paintArea');//画布
+        var _this = this;
+        var attr = {  //在画布中用到的一些属性
+          canvas : myCanvas,
+          colunms : 0, //画布总共的列数目
+          context : myCanvas.getContext('2d'),
+          drops : []
+        };
+        
+        //在初始的时候和浏览器大小变动时一些属性的值需要变化
+        function setAttr(){
+          attr.canvas.width = window.innerWidth;
+          attr.canvas.height = window.innerHeight;
+          attr.colunms = Math.floor(attr.canvas.width / _this.fontSize);
+          for (var i = 0; i < attr.colunms; i++) {
+            if(!attr.drops[i]) {
+              attr.drops[i] = attr.canvas.height;//字符瀑布流直接开始下落
+              // attr.drops[i] = 1;//先从上到下扫描一遍再下落
+            }
+          }
+        }
+        
+        setAttr();//初始化
+        window.onresize = function(){
+          setAttr();  //浏览器窗口大小变化时改变
+        }
+        
+        return attr;
+      },
+      init : function(){
+        var _this = this;
+        var attr = this.setAttributes();
+        var tiemr = setInterval(function(){
+          _this.draw(attr);
+        },20);
+      }
+    };
+    
+    characterRain.init();
+  </script>
+</html>
