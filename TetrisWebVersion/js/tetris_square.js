@@ -911,9 +911,6 @@ function randomNewModle()
   },fallingSpeed);
 }
 
-/*======================= window.onload ==========================*/
-window.onload = function()
-{
   var operationTipsBtn = document.getElementById('operationTipsBtn');//游戏操作提示按钮
   var operationTipsContent = document.getElementById('operationTipsContent');//游戏操作提示内容
   var previewBtn = document.getElementById('previewBtn');    //游戏方块预览按钮
@@ -1013,5 +1010,3 @@ window.onload = function()
       default:  break;
     }
   };
-  // return false;
-};
