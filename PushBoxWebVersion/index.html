@@ -22,26 +22,12 @@
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-jiazai"></use>
         </svg>
-        <p>已加载 0 % </p>
+        <p>全力加载中...</p>
       </div>
     </div>
    
      <!-- 游戏的主体界面 -->
      <div id="mainContainer" class="clearfix">
-    <script type="text/javascript">
-	(function(){
-		var mainContainer = document.getElementById('mainContainer');
-		mainContainer.style.displey = 'none';
-		var img = document.createElement('img');
-		img.src = './img/pushBoxSprite.png';
-		img.onload = function (){
-		document.getElementsByTagName('p')[0].innerHTML = '全力加载中... ';
-		var box = document.getElementsByClassName('onloading')[0];
-		box.style.display = 'none';//加载完成后页面消失
-		mainContainer.style.displey = 'block';
-		};
-	}())
-     </script>
        <!-- 游戏的地图、人物界面 -->
        <div id="mapArea" class="clearfix"></div>
        <!-- 游戏的控制按钮界面 -->
@@ -80,6 +66,19 @@
          <input type="button" name="" id="" value="ok" />
        </div>
      </div>
+<script type="text/javascript">
+	(function(){
+		var mainContainer = document.getElementById('mainContainer');
+		var img = document.createElement('img');
+		img.src = './img/pushBoxSprite.png';
+		img.onload = function (){
+		var box = document.getElementsByClassName('onloading')[0];
+		box.getElementsByTagName('p')[0].innerHTML = '加载完成';
+		box.style.display = 'none';//加载完成后页面消失
+		mainContainer.style.display = 'block';
+		};
+	}())
+     </script>
 	</body>
     <script type="text/javascript" src="js/move.js"></script>
     <script type="text/javascript" src="js/originalMaps.js"></script>
