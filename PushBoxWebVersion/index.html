@@ -15,6 +15,26 @@
       控制面板大小：200px X 600px
       整体显示大小：800px X 600px
      -->
+     <!--   预加载图片    -->
+     <div class="onloading">
+      <div class="onloading-svgBox">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-jiazai"></use>
+        </svg>
+        <p>已加载 0 % </p>
+      </div>
+    </div>
+    <script type="text/javascript">
+  	(function(){
+      var img = document.createElement('img');
+      img.src = './img/pushBoxSprite.png';
+      img.onload = function (){
+        document.getElementsByTagName('p')[0].innerHTML = '已加载 100 % ';
+        var box = document.getElementsByClassName('onloading')[0];
+        box.style.display = 'none';//加载完成后页面消失
+      };
+    }())
+    </script>
      <!-- 游戏的主体界面 -->
      <div id="mainContainer" class="clearfix">
        <!-- 游戏的地图、人物界面 -->
