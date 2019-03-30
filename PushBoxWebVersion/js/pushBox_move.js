@@ -324,8 +324,6 @@ function showTips(oEle)
   };
 }
 
-window.onload = function()
-{
   var mapArea = document.getElementById('mapArea');//显示地图的区域
   var timer = null;//定时刷新地图
   var tipsContent = document.getElementById('tipsContent');//提示现在是多少关
@@ -415,7 +413,7 @@ window.onload = function()
   
   document.onkeydown = function(ev)
   {
-    var oEvent = event || ev;
+    var oEvent = ev || window.event;
     switch(oEvent.keyCode)
     {
       case 37: directionLeft.onclick(); break;
@@ -424,14 +422,5 @@ window.onload = function()
       case 40: directionDown.onclick(); break;
     }
   }
-  
-  
-  /* setInterval(function(){
-    if(pass)
-    {
-      startMove(passingPanel);
-    }
-  },100); */
   //定时刷新地图
-  timer = setInterval(drawMap,30);
-};
+  timer = setInterval(drawMap,100);
