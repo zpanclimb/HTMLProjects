@@ -46,7 +46,7 @@ html,body {
 /* ======= main-container ========= */
 #mainContainer {
   width: 1010px;
-  height: 600px;
+  height: 500px;
   background-color: darkgray;
   border-radius: 5px;
   margin: 20px auto;
