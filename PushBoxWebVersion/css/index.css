@@ -2,7 +2,7 @@ html,body {
   margin: 0;
   padding: 0;
   background-color: #FFFAE8;
-/*   height:100%; */
+  height:100%;
 }
 .clearfix::after {
   content: '.';
