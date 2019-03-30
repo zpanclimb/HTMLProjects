@@ -10,7 +10,7 @@ var difficult = 200;  //默认游戏难度为一般难度
 var live = false;     //蛇的生命
 var turnDirection = true; //是否可以转向，解决手速过快直接方向移动
 
-var headColor = '#EB187C';//#F4007A#E11C7E蛇头的颜色
+var headColor = '#EB187C';//蛇头的颜色
 var bodyColor = '#008040';//蛇身的颜色
 var foodColor = '#55027D';//食物的颜色
 
@@ -363,9 +363,6 @@ SnakeBody.prototype.eating = function()   //蛇吃掉了食物
 };
 
 
-
-window.onload = function()
-{
   // tipsArea以及里面的元素
   var operationTipsBtn = document.getElementById('operationTipsBtn');        //游戏操作提示按钮
   var operationTipsContent = document.getElementById('operationTipsContent');//游戏操作提示内容
@@ -539,5 +536,3 @@ window.onload = function()
     turnDirection = false;
     // return false;
   }
-  
-};
