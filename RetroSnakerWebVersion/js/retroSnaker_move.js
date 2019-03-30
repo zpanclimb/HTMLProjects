@@ -24,9 +24,12 @@ var operationTipsContent = document.getElementById('operationTipsContent');//游
 
 var historyScoreBtn = document.getElementById('historyScoreBtn');          //显示历史最高分按钮
 var historyScoreContent = document.getElementById('historyScoreContent');  //历史最高分内容
+var afourHistoryScore = historyScoreContent.getElementsByTagName('p');	   //四个难度的历史最高分
+
 
 var showCurrentScoreBtn = document.getElementById('showCurrentScoreBtn');  //实时分数按钮
 var currentScoreContent = document.getElementById('currentScoreContent');  //显示实时分数内容的容器
+var currentScore = document.getElementById('currentScore');           	   //实时分数内容
 
 var startGameBtn = document.getElementById('startGame');    //开始游戏按钮
 var chooseLevelBtn = document.getElementById('chooseLevel');//选择游戏难度妞妞
@@ -35,9 +38,6 @@ var chooseLevelBtn = document.getElementById('chooseLevel');//选择游戏难度
 var chooseLevelPanel = document.getElementById('chooseLevelPanel');   //难度选择按钮
 var aDifficultyArray = chooseLevelPanel.getElementsByTagName('input');//四个难度选择按钮
 aDifficultyArray[2].className = 'difficultyBtn_selected';             //默认一般难度
-
-var afourHistoryScore = historyScoreContent.getElementsByTagName('p');//四个难度的历史最高分
-var currentScore = document.getElementById('currentScore');           //实时分数内容
 
 var direction = new Direction();//方向
 var snake = null;
@@ -380,24 +380,6 @@ SnakeBody.prototype.eating = function()   //蛇吃掉了食物
 	}
 };
 
-
-  // tipsArea以及里面的元素
-//   var operationTipsBtn = document.getElementById('operationTipsBtn');        //游戏操作提示按钮
-//   var operationTipsContent = document.getElementById('operationTipsContent');//游戏操作提示内容
-  
-//   var historyScoreBtn = document.getElementById('historyScoreBtn');          //显示历史最高分按钮
-//   var historyScoreContent = document.getElementById('historyScoreContent');  //历史最高分内容
-  
-//   var showCurrentScoreBtn = document.getElementById('showCurrentScoreBtn');  //实时分数按钮
-//   var currentScoreContent = document.getElementById('currentScoreContent');  //显示实时分数内容的容器
-  
-//   var startGameBtn = document.getElementById('startGame');    //开始游戏按钮
-//   var chooseLevelBtn = document.getElementById('chooseLevel');//选择游戏难度妞妞
-
-//   //难度弹出框以及里面的元素
-//   var chooseLevelPanel = document.getElementById('chooseLevelPanel');   //难度选择按钮
-//   var aDifficultyArray = chooseLevelPanel.getElementsByTagName('input');//四个难度选择按钮
-//   aDifficultyArray[2].className = 'difficultyBtn_selected';             //默认一般难度
   
   //给游戏操作提示、历史最高分、实时分数三个按钮添加一个显示或隐藏的标志
   operationTipsBtn.showOr = false;  //隐藏
