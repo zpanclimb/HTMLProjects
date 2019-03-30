@@ -29,7 +29,7 @@
       var img = document.createElement('img');
       img.src = './img/pushBoxSprite.png';
       img.onload = function (){
-        document.getElementsByTagName('p')[0].innerHTML = '已加载 100 % ';
+        document.getElementsByTagName('p')[0].innerHTML = '全力加载中... ';
         var box = document.getElementsByClassName('onloading')[0];
         box.style.display = 'none';//加载完成后页面消失
       };
