@@ -420,7 +420,8 @@ function showTips(oEle)
       case 38: directionUp.onclick(); break;
       case 39: directionRight.onclick(); break;
       case 40: directionDown.onclick(); break;
+      default: ;
     }
   }
   //定时刷新地图
-  timer = setInterval(drawMap,100);
+  timer = setInterval(drawMap,1000);
