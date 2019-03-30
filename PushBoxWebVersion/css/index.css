@@ -1,8 +1,9 @@
-body {
+html,body {
   margin: 0;
   padding: 0;
   /* background-color: #F5F4F0; */
   background-color: #FFFAE8;
+  height:100%;
 }
 .clearfix::after {
   content: '.';
@@ -11,7 +12,37 @@ body {
   visibility: hidden;
   clear: both;
 }
-
+/* ======= onloading 预加载部分 ========= */
+.icon {
+  width: 3em;
+  height: 3em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  animation: turn 1s linear infinite;
+  margin-left: 20%;
+}
+@keyframes turn{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.onloading {
+  height: 100%;
+  background-color: lavender;
+  position: relative;
+  color: indigo;
+}
+.onloading-svgBox {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
 /* ======= main-container ========= */
 #mainContainer {
   width: 1010px;
