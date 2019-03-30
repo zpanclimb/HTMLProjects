@@ -424,4 +424,4 @@ function showTips(oEle)
     }
   }
   //定时刷新地图
-  timer = setInterval(drawMap,1000);
+  timer = setInterval(drawMap,100);
