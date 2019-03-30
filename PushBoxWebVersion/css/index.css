@@ -1,9 +1,9 @@
-html {
+
+html,body {
   height:100%;
-}
-body {
   margin: 0;
   padding: 0;
+  overflow:hidden;
   background-color: #FFFAE8;
 }
 .clearfix::after {
