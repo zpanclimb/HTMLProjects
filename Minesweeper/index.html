@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>扫雷游戏</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<script src="font_icon/iconfont.js"></script>
+	</head>
+	<body>
+    <!-- 
+      初级： 10个雷  9x9 平铺网格
+      中级： 40个雷  16x16 平铺网格
+      高级： 99个雷  16x30 平铺网格
+    自定义：  高度 9-24  宽度 9-30   雷数 10-668
+     -->
+    <div class="container">
+			<!-- 顶部菜单 -->
+    	<div class="menu">
+        <div class="option" title="选项">
+          <svg class="icon" aria-hidden="true">
+          	<use xlink:href="#icon-xuanxiang"></use>
+          </svg>
+          <ul class="sub-option">
+          	<li class="item" title="初级难度">初级：10个雷 9x9网格</li>
+          	<li class="item" title="中级难度">中级：40个雷 16x16网格</li>
+          	<li class="item" title="高级难度">高级：99个雷 16x30网格</li>
+          	<li class="item" title="自定义难度">
+							自定义
+							<ul class="userDefined">
+								<li class="userDefined-item"  title="高度: 9-24">
+									<span>高 度 (9-24)</span>
+									<input type="text" class="userDefinded-input" min="9" max="24" />
+								</li>
+								<li class="userDefined-item"  title="宽度: 9-30">
+									<span>宽 度 (9-30)</span>
+									<input type="text" class="userDefinded-input" min="9" max="30" />
+								</li>
+								<li class="userDefined-item" title="雷数: 10-668">
+									<span>雷 数 (10-668)</span>
+									<input type="text" class="userDefinded-input" min="10" max="668" />
+								</li>
+								<li class="userDefined-item">
+									<input type="button" class="userDefinded-ensure" value="确定" />
+									<input type="button" class="userDefinded-cancle" value="取消" />
+								</li>
+							</ul>
+						</li>
+          	<li class="item" title="游戏界面设置">
+							游戏界面
+							<ul class="themeSettings">
+								<li class="greyTheme"><span></span><span title="灰色主题">灰色</span></li>
+								<li class="blueTheme"><span></span><span title="蓝色主题">蓝色</span></li>
+							</ul>
+						</li>
+          </ul>
+        </div>
+        <div class="smile" title="重新开始">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-xiaolian"></use>
+					</svg>
+				</div>
+      </div>
+			<!-- 中部游戏区域 -->
+    	<div class="gameArea"></div>
+			<!-- 底部时间与雷数目提示区域 -->
+      <div class="tips">
+        <div class="time-box" title="已用时间">
+          <span class="time-icon"></span>
+          <span class="time-num">00 : 00</span>
+        </div>
+        <div class="mine-box" title="剩余雷数目">
+          <div class="mine-icon"></div>
+          <div class="mine-num">10</div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="./js/jQuery1.11.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./js/index.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
