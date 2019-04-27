@@ -25,6 +25,7 @@
 			openedSet = {},				//存放已经打开的格子的集合
 			surplusSquareNum = 0,	//当前剩余未翻开的方块的数目
 			currentMineNum = 0,		//当前剩余的雷的数目
+			gameBegin = true,
 			nowLevel = null,			//当前的等级难度
 			timer = null; 				//游戏时间计时器
 	
@@ -83,22 +84,27 @@
 				squareArr[i][j] = tempArr.eq(n++);//存放方块
 			}
 		}
-		//调用随机安放雷的位置函数
-		randomMinePosition(attr);
 	}
 	
-	//随机安放雷的位置
-	function randomMinePosition(attr)
+	//随机安放雷的位置，鼠标第一次点击时调用此函数
+	function randomMinePosition(minesPosSet,attr,target)
 	{
 		var mines = attr.mineNum,
 				rows = attr.hNum,
-				cols = attr.wNum;
-		
+				cols = attr.wNum,
+				clickR = target.prop('row'),//鼠标点击的那个位置
+				clickC = target.prop('col');
+				
 		for (let i = 0; i < mines; )
 		{
 			let r = Math.floor(Math.random()*rows),
 			    c = Math.floor(Math.random()*cols),
 					str = r+'-'+c;
+			//鼠标第一次点击时的位置周围八个方块不能出现雷，避免第一次就点到雷死掉了
+			if((r>=clickR-1&&r<=clickR+1) && (c>=clickC-1&&c<=clickC+1)) {
+				continue;
+			}
+			// 在 minesPosSet 中不能存在，也就是雷的位置不能重复出现在同一个地方
 			if(minesPosSet[str] === undefined) {
 				minesPosSet[str] = {
 					'row' : r,
@@ -161,6 +167,7 @@
 		squareArr = [];
 		minesPosSet = {};
 		openedSet = {};
+		gameBegin = true;
 		
 		//重置界面
 		$('.gameArea').remove();//移除原来的游戏区域
@@ -288,6 +295,7 @@
 				state = uber.prop('state'),	//.square方块的状态位
 				mouseKey = e.which; 				//鼠标按键 1：左键 2：中键 3:右键
 		//state: -1 | 0 | 1 | 2 ,依次代表：已翻开 | 原始未翻开 | 标记旗子 | 标记问号
+		
 		//鼠标左键可以点击的情况
 		if(mouseKey===1 && (state===0 || state===2)) 
 		{
@@ -295,6 +303,13 @@
 			target.fadeOut(300); 	//覆盖在方块上的span消失
 			surplusSquareNum--;		//当前剩余的未翻开的方块减一
 			openedSet[uber.prop('row')+'-'+uber.prop('col')] = 1;//将方块添加到已翻开集合
+			
+			//每次开始新游戏，鼠标第一次点击时进行 安放雷的位置，点击的位置周围八个方块不能出现雷
+			if(gameBegin) {
+				gameBegin = false;
+				// 调用随机安放雷的位置函数
+				randomMinePosition(minesPosSet,nowLevel,uber);
+			}
 			//点击到了炸弹，游戏结束
 			if(uber.prop('isMine')) {
 				//在被点击的那个雷上加一个红色的遮罩
