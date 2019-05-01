@@ -312,7 +312,7 @@ ul,li{
 
 /* 背景为地雷 */
 .bg-mine{
-	background: url(../img/gameIcon.png) no-repeat -1px -46px;
+	background: url(../img/gameIcon.png) no-repeat -2px -46px;
 }
 /* 标志旗子 */
 .mark-flag{
