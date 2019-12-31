@@ -7,4 +7,4 @@
   + 扫雷游戏：[Minesweeper](https://zpanclimb.github.io/HTMLProjects/Minesweeper/index.html)
 
 + 有几个小玩意儿：
-  + 黑客字符雨：[CharacterRain](https://zpanclimb.github.io/HTMLProjects/CharacterRai.html)
+  + 黑客字符雨：[CharacterRain](https://zpanclimb.github.io/HTMLProjects/CharacterRain.html)
