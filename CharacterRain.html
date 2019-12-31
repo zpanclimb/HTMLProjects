@@ -1,0 +1,114 @@
+<!--
+ * @Author: zpan
+ * @Date: 2019-12-31 19:31:31
+ * @LastEditTime : 2019-12-31 22:25:59
+ * @LastEditors  : Please set LastEditors
+ * @Description: 
+ * @FilePath: \HTML Workspace\small projects\CharRain.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>字符雨</title>
+  <style type="text/css">
+    
+    body{
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #canvas{
+      background-color: #111;
+    }
+    
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+</body>
+</html>
+<script type="text/javascript">
+  
+  ;(function(win){
+
+    /** 创造一个字符雨canvas */
+    class CharRain
+    {
+      /**
+       * @description CharRain 类的构造函数
+       * @constructs
+       * @param {string} canvas_id - canvas 元素的 id
+      */
+      constructor(canvas_id){
+        this.canvas = document.getElementById(canvas_id);
+        this.context = this.canvas.getContext("2d");
+        this.bg_opacity = 0.08;  // canvas背景的透明度，也是字符消失的速度；取值范围：0 - 1
+        this.appearRate = 0.95;  // canvas中每一列下落到底部后再次出现字符的机率；取值范围：0 - 1
+        this.dropSpeed = 30;     // 字符下落速度
+        this.fontSize = 17;     // 字符大小；也确定了字符列的数目，列之间的间距
+        this.colunm = 0;        // 画布中的字符列的数目
+        this.drops = [];        // 记录每一列的字符下落的 y 值
+        this.timer = null;      // 定时器
+        this.chars = "abcdefghijklmnopqrstuvwxyz0123456789";  // 可选字符
+        this.init();
+      }
+
+      /**
+       * @description 初始化类
+       */
+      init(){
+        let _this = this;
+        this.setAttr();
+        win.addEventListener("resize", function (){              // 添加浏览器窗口变化监听，重新设置相关属性
+          _this.setAttr();
+        });
+        this.timer = setInterval(function (){                    // 添加定时器，下落
+          _this.draw();
+        }, _this.dropSpeed);
+      }
+
+      /**
+       * @description 设置类的一些属性
+      */
+      setAttr(){
+        this.canvas.width = win.innerWidth;
+        this.canvas.height = win.innerHeight;                     // 重新设置 canvas 的宽度和高度
+        this.colunm = Math.ceil(win.innerWidth / this.fontSize); // 重新设置列数
+        for (let i=0; i<this.colunm; i++) {
+          if(!this.drops[i]) {                                    // 已经存在下落字符的列不用设置
+            this.drops[i] = win.innerHeight;                      // 字符瀑布流直接开始下落
+          }
+        }
+      }
+
+      /**
+       * @description 在画布上画出下落的字符
+      */
+      draw(){
+        this.context.fillStyle = "rgba(1,1,1," + this.bg_opacity + ")";   // 叠加画黑色背景，通过不透明度，形成字符逐渐消失的效果
+        this.context.fillRect(0, 0, win.innerWidth, win.innerHeight);    // 画矩形以清除之前画的字符
+        this.context.fillStyle = "#00cc33";                              // 经典黑底绿字
+        this.context.font = this.fontSize + "px Consolas";               // 设置字符的大小、样式
+
+        for(let i=0; i<this.colunm; i++) {                               // 在每一列上画出字符
+          let index = Math.floor(Math.random() * this.chars.length);    // 随机一个字符
+          let x = i * this.fontSize;
+          let y = this.drops[i] * this.fontSize;                        // 字符在 y 轴方向上的距离
+          this.context.fillText(this.chars[index], x, y);               // 画字符
+          if (y>=this.canvas.height && Math.random()>this.appearRate) { // 字符落到底部 && 有再次出现的机率
+            this.drops[i] = 0;                                          // 0 代表每一列的字符位置回到顶部
+          }
+          this.drops[i]++;                                              // 字符逐渐下落，字符在 y 轴上的距离增加一
+        } 
+      }
+    }
+
+    win.CharRain = CharRain;
+  }(window));
+  
+  new CharRain("canvas");
+
+</script>
